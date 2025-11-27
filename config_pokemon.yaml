@@ -1,0 +1,38 @@
+# Configuration for scrapeme.live (Pokemon e-commerce practice site)
+
+scraper:
+  base_url: "https://scrapeme.live/shop/"
+
+  # Pagination settings
+  max_pages: 3
+  pagination_pattern: "page/{}/"
+  start_page: 1
+
+  # Delay settings (be respectful)
+  delay_min: 1
+  delay_max: 2
+
+  # Request settings
+  timeout: 15
+  max_retries: 3
+  retry_delay: 2
+
+  user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+
+  # CSS Selectors for Pokemon products
+  selectors:
+    product_container: "li.product"
+    product_name: "h2"
+    product_name_attr: null
+    product_price: "span.amount"
+    product_availability: "span.stock"
+    product_image: "img"
+    product_image_attr: "src"
+
+  check_robots: true
+
+output:
+  raw_data_file: "pokemon_products"
+  default_format: "csv"
+  save_errors: true
+  error_log_file: "pokemon_scraping_errors.log"

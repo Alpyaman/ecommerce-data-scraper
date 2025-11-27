@@ -1,0 +1,42 @@
+# E-commerce Scraper Configuration
+
+scraper:
+  # Base URL to scrape
+  base_url: "http://books.toscrape.com/"
+
+  # Pagination settings
+  max_pages: 5
+  pagination_pattern: "catalogue/page-{}.html"  # Use {} as placeholder for page number
+  start_page: 1
+
+  # Delay settings (in seconds) - for ethical scraping
+  delay_min: 1
+  delay_max: 3
+
+  # Request settings
+  timeout: 10
+  max_retries: 3
+  retry_delay: 2  # Initial retry delay in seconds
+
+  # User agent
+  user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+
+  # CSS Selectors (customize based on target site)
+  selectors:
+    product_container: "article.product_pod"
+    product_name: "h3 a"
+    product_name_attr: "title"
+    product_price: "p.price_color"
+    product_availability: "p.instock.availability"
+    product_image: "img"
+    product_image_attr: "src"
+
+  # Respect robots.txt
+  check_robots: true
+
+# Output settings
+output:
+  raw_data_file: "raw_products"  # Extension will be added based on format
+  default_format: "csv"  # Options: csv, json, excel
+  save_errors: true
+  error_log_file: "scraping_errors.log"

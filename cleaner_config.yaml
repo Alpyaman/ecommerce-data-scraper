@@ -1,0 +1,86 @@
+# Data Cleaner Configuration
+
+cleaning:
+  # Duplicate removal settings
+  remove_duplicates: true
+  duplicate_subset: ['name', 'price']  # Fields to check for duplicates
+
+  # Text normalization
+  normalize_text: true
+
+  # Missing data handling
+  handle_missing: true
+  missing_strategy: 'flag'  # Options: 'drop', 'flag', 'fill'
+
+  # Price validation
+  min_price: 0.01
+  max_price: 100000
+
+  # Required fields
+  required_fields: ['name']
+
+# Product categorization
+categorization:
+  enabled: true
+  default_category: 'General'
+
+  # Keyword-based categorization
+  keywords:
+    Electronics:
+      - laptop
+      - phone
+      - computer
+      - monitor
+      - keyboard
+      - mouse
+      - tablet
+      - ipad
+
+    Gaming:
+      - game
+      - console
+      - controller
+      - gaming
+      - playstation
+      - xbox
+      - nintendo
+
+    Accessories:
+      - cable
+      - case
+      - adapter
+      - charger
+      - stand
+      - holder
+      - mount
+      - hub
+
+    Audio:
+      - headphone
+      - speaker
+      - earphone
+      - audio
+      - microphone
+      - earbuds
+      - airpods
+
+    Storage:
+      - ssd
+      - hdd
+      - drive
+      - storage
+      - disk
+
+    Pokemon:
+      - pokemon
+      - pikachu
+      - charizard
+      - bulbasaur
+      - squirtle
+      - charmander
+
+# Output settings
+output:
+  default_format: 'json'  # Options: 'csv', 'json', 'excel'
+  save_quality_report: true
+  quality_report_file: 'data_quality_report.json'
